@@ -79,8 +79,8 @@ function PostForm({ defaultValues, postRef, preview }) {
             )}
 
             <div className={preview ? 'hidden' : 'controls'}>
-                <textarea name="content"
-                    ref={register({
+                <textarea
+                    {...register('content', {
                         maxLength: { value: 20000, message: 'content is too long' },
                         minLength: { value: 10, message: 'content is too short' },
                         required: { value: true, message: 'content is required' },
@@ -89,7 +89,7 @@ function PostForm({ defaultValues, postRef, preview }) {
                 </textarea>
 
                 <fieldset>
-                    <input className={'checkbox'} name="published" type="checkbox" ref={register} />
+                    <input className={'checkbox'} {...register('published')} type="checkbox" />
                     <label>Published</label>
                 </fieldset>
 
